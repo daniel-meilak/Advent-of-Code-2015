@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "G++ Build",
+			"command": "/usr/bin/g++",
+			"args": [
+                "-g",
+				"${file}",
+				"${fileDirname}/utils.cpp",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.out"
+            ],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: /usr/bin/g++"
+		}
+	]
+}
