@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"utils.h"
+#include"../../utils/utils.h"
 
 int main(){
 
@@ -18,7 +18,7 @@ int main(){
     bool got_to_basement = false;
 
     // work through instructions
-    for ( int i=0; i<input.size(); i++){
+    for (unsigned int i=0; i<input.size(); i++){
 
         // Part 1 
         if ( input[i] == '(' ){

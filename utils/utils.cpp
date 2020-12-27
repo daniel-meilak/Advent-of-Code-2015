@@ -2,6 +2,7 @@
 #include<iostream>
 #include<vector>
 #include<fstream>
+#include<sstream>
 #include<string>
 #include<cstdlib>
 #include<cmath>
@@ -63,7 +64,7 @@ std::vector<int> input_to_int(std::vector<std::string> input){
 
    std::vector<int> output;
 
-   for (int i=0; i<input.size(); i++){
+   for (unsigned int i=0; i<input.size(); i++){
       output.push_back(std::stoi(input[i]));
    }
 
@@ -75,7 +76,7 @@ std::vector<long long int> input_to_llint(std::vector<std::string> input){
 
    std::vector<long long int> output;
 
-   for (int i=0; i<input.size(); i++){
+   for (unsigned int i=0; i<input.size(); i++){
       output.push_back(std::stoll(input[i]));
    }
 
@@ -87,14 +88,14 @@ std::vector<double> input_to_double(std::vector<std::string> input){
 
    std::vector<double> output;
 
-   for (int i=0; i<input.size(); i++){
+   for (unsigned int i=0; i<input.size(); i++){
       output.push_back(std::stod(input[i]));
    }
 
    return output;
 }
 
-// convert binary to decimal
+// convert binary (represented as normal int) to decimal
 int binary_to_decimal( int binary ){
 
    int decimal = 0;
@@ -112,11 +113,11 @@ int binary_to_decimal( int binary ){
    return decimal;
 }
 
-
+// convert deicmal to binary (as an int)
 int decimal_to_binary( int decimal ){
 
    int binary = 0;
-   int remainder, i = 1, step = 1;
+   int remainder, i = 1;
 
    while ( decimal != 0){
       remainder = decimal%2;
@@ -127,3 +128,40 @@ int decimal_to_binary( int decimal ){
 
    return binary;
 }
+
+// split delimiter spaced elements in string into vector of strings
+std::vector<std::string> split(std::string str, std::string delimiter){ 
+
+   size_t pos = 0;
+   std::string token;
+   std::vector<std::string> output;
+
+   while ((pos = str.find(delimiter)) != std::string::npos){
+      token = str.substr(0, pos);
+      output.push_back(token);
+      str.erase(0, pos + delimiter.length());
+   }
+   output.push_back(str);
+ 
+   return output; 
+}
+
+// takes input and splits into multiple vectors according to delimiter
+std::vector<std::vector<std::string>> split_input(std::vector<std::string> input, std::string delimiter){
+
+   std::vector<std::vector<std::string>> output;
+   std::vector<std::string> part;
+
+   for (std::string line : input){
+      if ( line != delimiter){
+         part.push_back(line);
+      }
+      else {
+         output.push_back(part);
+         part.clear();
+      }
+   }
+   output.push_back(part);
+
+   return output;
+} 

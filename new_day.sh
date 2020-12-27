@@ -2,16 +2,14 @@
 
 # script for making new day folder and including files
 
-mkdir $1
-
-cp utils/util* $1/
+mkdir day_${1}
 
 echo "#include<iostream>
 #include<vector>
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include\"utils.h\"
+#include\"../../utils/utils.h\"
 
 int main(){
 
@@ -19,14 +17,14 @@ int main(){
     std::vector<std::string> input = read_input(\"input\", \"\");
 
     return 0;
-}" >> $1/day${1}.cpp
+}" >> day_${1}/day_${1}.cpp
 
 echo "#include<iostream>
 #include<vector>
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include\"utils.h\"
+#include\"../../utils/utils.h\"
 
 int main(){
 
@@ -34,4 +32,7 @@ int main(){
     //std::vector<std::string> input = read_input(\"input\", \"\");
 
     return 0;
-}" >> $1/test.cpp
+}" >> day_${1}/test.cpp
+
+echo "## Day ${1}" >> day_${1}/README.md
+
