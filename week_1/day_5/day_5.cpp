@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../utils/utils.h"
+#include"../../Utils/utils.h"
 
 // forward function declarations
 bool three_vowels(std::string word);
