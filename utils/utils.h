@@ -9,6 +9,7 @@ std::vector<std::string> read_input(std::string file_name, std::string separator
 
 // read input file into 2D vector or vectors
 std::vector<std::vector<std::string>> read_input_2D(std::string file_name, std::string separator);
+std::vector<std::vector<std::string>> read_input_2D(std::string file_name, std::vector<std::string> delimiters);
 
 // separate input into multiple vectors according to delimiter spacing
 std::vector<std::vector<std::string>> split_input(std::vector<std::string> input, std::string delimiter);
