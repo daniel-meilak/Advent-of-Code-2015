@@ -6,7 +6,7 @@
 #include<cctype>
 #include<bitset>
 #include<unordered_map>
-#include"../../utils/utils.h"
+#include"../../Utils/utils.h"
 
 // conveniet flags for switch case 
 enum oper {
