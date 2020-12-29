@@ -25,7 +25,8 @@ struct ident{
 // forward function declarations
 void create_link(std::unordered_map<std::string, ident> &links, std::vector<std::string> line);
 std::bitset<16> eval(std::unordered_map<std::string, ident> &links, std::string wire);
-void part_1(std::vector<std::vector<std::string>> &input);
+int part_1(std::vector<std::vector<std::string>> &input);
+void part_2(std::vector<std::vector<std::string>> &input, int b_input);
 
 int main(){
 
@@ -33,12 +34,16 @@ int main(){
     std::vector<std::string> delimiters = {" ", "->"};
     std::vector<std::vector<std::string>> input = read_input_2D("input", delimiters );
 
-    part_1(input);
+    int b_input;
 
+    // part_1 returns value for part two
+    b_input = part_1(input);
+    part_2(input, b_input);
+    
     return 0;
 }
 
-void part_1(std::vector<std::vector<std::string>> &input){
+int part_1(std::vector<std::vector<std::string>> &input){
 
     std::unordered_map<std::string, ident> links;
 
@@ -46,7 +51,24 @@ void part_1(std::vector<std::vector<std::string>> &input){
         create_link(links, line);
     }
 
-    std::cout << eval(links, "a").to_ulong() << std::endl;
+    int answer = eval(links, "a").to_ulong();
+    std::cout << "Answer (part 1): " << answer << std::endl;
+
+    return answer;
+}
+
+void part_2(std::vector<std::vector<std::string>> &input, int b_input){
+
+    std::unordered_map<std::string, ident> links;
+
+    for ( std::vector<std::string> line : input ){
+        create_link(links, line);
+    }
+
+    links["b"].value = b_input;
+
+    int answer = eval(links, "a").to_ulong();
+    std::cout << "Answer (part 2): " << answer << std::endl;
 }
 
 // creates map of idents, building their requirements to calculate value
