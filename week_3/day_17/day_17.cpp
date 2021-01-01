@@ -14,48 +14,46 @@ int main(){
 
     std::sort(input.rbegin(), input.rend());
 
-    int num = find_comb(input, 150);
+    // target amount
+    const int target = 150;
 
-    std::cout << num << std::endl;
+    int part_1 = find_comb(input, target);
+
+    std::cout << "Answer (part 1): " << part_1 << std::endl;
+    //std::cout << "Answer (part 2): " << count  << std::endl;
 
     return 0;
 }
 
+// Takes sorted vector of int and finds how many compinations of 
+// values equals target
 int find_comb(std::vector<int> input, int target){
 
-    // if input is empty return
-    if (input.size() == 0){ return 0; }
-
-    std::vector<int> input_copy;
+    // output
     int count = 0;
 
-    for (unsigned int i=0; i<input.size(); i++){
+    std::vector<int> input_copy;
+    unsigned int size = input.size();
 
-        // if remaining numbers in input cant equal target return
-        int sum = 0;
-        for (int num : input){ sum+= num; }
-        if (sum < target){ return count; }
-        
-        input_copy = input;
+    for (unsigned int i=0; i<size; i++){
 
+        // current element in input
         int current_size = input[i];
+
+        // if sum of remaining numbers can't equal target, return count
+        int sum = 0;
+        for (unsigned int j=i; j<size; j++){ sum += input[j]; }
+        if (sum < target){ return count; }
+
+        // if target is reached, incr count 
         if ( target == current_size){
             ++count;
-            input.erase(input.begin()+i);
-            --i;
         }
+        // else use find_comb on next values
         else if ( target > current_size ){
-            input_copy.erase(input_copy.begin()+i);
+            input_copy.assign(input.begin()+i+1, input.end());
             count += find_comb(input_copy, target-current_size);
-            input.erase(input.begin()+i);
-            --i;
-            input_copy = input;
         }
-        else if (target < current_size){
-            input.erase(input.begin()+i);
-            --i;
-        }
-         
     }
 
     return count;
