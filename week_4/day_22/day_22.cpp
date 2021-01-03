@@ -16,25 +16,30 @@ int main(){
     hero player;
     enemy boss;
 
-    int min_mana = 1000000;
+    int min_mana1 = 1000000;
+    int min_mana2 = 1000000;
     int mana;
-
-    // enable hard mode
-    bool part_2 = true;
     
     for ( int i=0; i<5; i++ ){
-        mana = fight(player, boss, i, part_2);
-        if (mana < min_mana){ min_mana = mana; }
+        mana = fight(player, boss, i, false);
+        if (mana < min_mana1){ min_mana1 = mana; }
     }
 
-    std::cout << "Answer: " << min_mana << std::endl;
+    for ( int i=0; i<5; i++ ){
+        mana = fight(player, boss, i, true);
+        if (mana < min_mana2){ min_mana2 = mana; }
+    }
+
+
+    std::cout << "Answer: " << min_mana1 << std::endl;
+    std::cout << "Answer: " << min_mana2 << std::endl;
 
     return 0;
 }
 
 int fight(hero player, enemy boss, int &spell, bool hard_mode){
 
-    static int min_mana = 1000000;
+    int min_mana = 1000000;
 
     // player turn
     player_turn(player, boss, spell, hard_mode);
