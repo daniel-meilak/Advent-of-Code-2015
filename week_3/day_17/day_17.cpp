@@ -42,7 +42,7 @@ int main(){
     return 0;
 }
 
-// Takes sorted vector of int and finds how many compinations of 
+// Takes sorted vector of int and finds how many combinations of 
 // values equals target
 int find_comb(std::vector<int> input, int target, int start_pos, std::vector<std::vector<int>> &history){
 
@@ -50,6 +50,7 @@ int find_comb(std::vector<int> input, int target, int start_pos, std::vector<std
     int count = 0;
 
     static int idx = 0;
+    if (history.size() == 1){idx = 0;}
     unsigned int size = input.size();
 
     for (unsigned int i=start_pos; i<size; i++){
