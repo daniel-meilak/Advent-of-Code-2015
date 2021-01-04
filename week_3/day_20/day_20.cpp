@@ -14,23 +14,23 @@ int main(){
     int input = 36000000;
 
     int x1 = 700000;
-    // int x2 = 1;
+    int x2 = 1;
     int sum1 = sum_factors1(x1);
-    // int sum2 = sum_factors2(x2);
+    int sum2 = sum_factors2(x2);
     
     while ( sum1 < input ){
         x1++;
         sum1 = sum_factors1(x1);
     }
 
-    // while ( sum2 < input ){
-    //     x2++;
-    //     sum2 = sum_factors2(x2);
-    // }
+    while ( sum2 < input ){
+        x2++;
+        sum2 = sum_factors2(x2);
+    }
     
 
     std::cout << "Answer (part 1): " << x1 << std::endl;
-    // std::cout << "Answer (part 2): " << x2 << std::endl;
+    std::cout << "Answer (part 2): " << x2 << std::endl;
 
     return 0;
 }
