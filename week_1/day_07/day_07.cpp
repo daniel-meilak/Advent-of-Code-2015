@@ -143,9 +143,7 @@ std::bitset<16> eval(std::unordered_map<std::string, ident> &links, std::string 
     ident &temp = links[wire];
 
     // if the signal has already been calculated, use it
-    if (temp.calculated){
-        return temp.signal;
-    }
+    if (temp.calculated){ return temp.signal; }
     // otherwise calculate using tree
     else {
         std::bitset<16> r;

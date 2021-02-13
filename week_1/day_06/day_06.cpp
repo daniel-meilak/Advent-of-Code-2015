@@ -39,22 +39,16 @@ void part_1(std::vector<std::vector<std::string>> &input){
         int x2 = std::stoi(input[i][3]);
         int y2 = std::stoi(input[i][4]);
 
-        if ( operation == "on" ){
-            turn_on(grid,x1,y1,x2,y2);
-        }
-        else if ( operation == "off" ){
-            turn_off(grid,x1,y1,x2,y2);
-        }
-        else if ( operation == "toggle" ){
-            toggle(grid,x1,y1,x2,y2);
-        }
+        if      (operation == "on"    ){ turn_on(grid,x1,y1,x2,y2);  }
+        else if (operation == "off"   ){ turn_off(grid,x1,y1,x2,y2); }
+        else if (operation == "toggle"){ toggle(grid,x1,y1,x2,y2);   }
     }
 
     // count lit lights
     int count = 0;
 
-    for (unsigned int i=0; i<grid.size(); i++){
-        for (unsigned int j=0; j<grid[i].size(); j++){
+    for (size_t i=0; i<grid.size(); i++){
+        for (size_t j=0; j<grid[i].size(); j++){
             if (grid[i][j]){ count++; }
         }
     }
@@ -76,22 +70,16 @@ void part_2(std::vector<std::vector<std::string>> &input){
         int x2 = std::stoi(input[i][3]);
         int y2 = std::stoi(input[i][4]);
 
-        if ( operation == "on" ){
-            turn_on_2(grid,x1,y1,x2,y2);
-        }
-        else if ( operation == "off" ){
-            turn_off_2(grid,x1,y1,x2,y2);
-        }
-        else if ( operation == "toggle" ){
-            toggle_2(grid,x1,y1,x2,y2);
-        }
+        if      (operation == "on"    ){ turn_on_2(grid,x1,y1,x2,y2);  }
+        else if (operation == "off"   ){ turn_off_2(grid,x1,y1,x2,y2); }
+        else if (operation == "toggle"){ toggle_2(grid,x1,y1,x2,y2);   }
     }
 
     // count lit lights
     int count = 0;
 
-    for (unsigned int i=0; i<grid.size(); i++){
-        for (unsigned int j=0; j<grid[i].size(); j++){
+    for (size_t i=0; i<grid.size(); i++){
+        for (size_t j=0; j<grid[i].size(); j++){
             count += grid[i][j];
         }
     }
