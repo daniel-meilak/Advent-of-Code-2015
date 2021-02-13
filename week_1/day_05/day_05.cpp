@@ -25,13 +25,9 @@ int main(){
     for (std::string word : input){
 
         // if all three rules are satisfied, increment count
-        if (three_vowels(word) && double_letter(word) && no_excluded(word)){
-            nice_strings_part1++;
-        }
+        if (three_vowels(word) && double_letter(word) && no_excluded(word)){ nice_strings_part1++; }
 
-        if (pair_twice(word) && repeat_inbetween(word)){
-            nice_strings_part2++;
-        }
+        if (pair_twice(word) && repeat_inbetween(word)){ nice_strings_part2++; }
     }
 
     std::cout << "Answer (part 1): " << nice_strings_part1 << std::endl;
@@ -55,9 +51,7 @@ bool three_vowels(std::string word){
         num_vowels += std::count(word.begin(), word.end(), vowel);
 
         // if tally >= 3, word is valid. 
-        if (num_vowels >= 3){
-            return true;
-        }
+        if (num_vowels >= 3){ return true; }
     }
 
     // if tally doesn't reach 3, word is invalid
@@ -67,13 +61,12 @@ bool three_vowels(std::string word){
 // check if string contains double letters next to each other
 bool double_letter(std::string word){
 
+    size_t size = word.size()-1;
     // loop through each letter checking for doubles
-    for (unsigned int i=0; i<word.size()-1; i++){
+    for (size_t i=0; i<size; i++){
         
         // if a double is found word is valid
-        if (word[i] == word[i+1]){
-            return true;
-        }
+        if (word[i] == word[i+1]){ return true; }
     }
 
     // no doubles, word is invalid
@@ -92,13 +85,7 @@ bool no_excluded(std::string word){
     xy = word.find("xy") == std::string::npos;
 
     // if all excluded word is valid
-    if ( ab && cd && pq && xy ){
-        return true;
-    }
-    // else word is invalid
-    else {
-        return false;
-    }
+    return ab && cd && pq && xy;
 }
 
 // check if pair of letters appears twice in string
@@ -107,20 +94,17 @@ bool pair_twice(std::string word){
     // contiain split up word
     std::string part1, part2;
 
+    size_t size = word.size()-1;
     // loop through pairs of letters
-    for (unsigned int i=0; i<word.size()-1; i++){
+    for (size_t i=0; i<size; i++){
 
         // pair to match
         std::string match = word.substr(i,2);
 
         // remove match from word and split into two 
         part1 = word.substr(0,i);
-        if ( i != word.size()-2 ){
-            part2 = word.substr(i+2);
-        }
-        else {
-            part2 = "";
-        }
+        if (i!=size-1){ part2 = word.substr(i+2); }
+        else { part2 = ""; }
 
         // if another copy of match is found in part1 or part2, word is valid
         if ( (part1.find(match) != std::string::npos) || (part2.find(match) != std::string::npos) ){
@@ -135,13 +119,12 @@ bool pair_twice(std::string word){
 // checks if word contains letters which repeat with an extra letter inbetween
 bool repeat_inbetween(std::string word){
 
+    size_t size = word.size()-2;
     // loop through letters
-    for (unsigned int i=0; i<word.size()-2; i++){
+    for (size_t i=0; i<size; i++){
 
         // if repeating letters found, word is valid
-        if (word[i] == word[i+2]){
-            return true;
-        }
+        if (word[i] == word[i+2]){ return true; }
     }
 
     // no repeating letters found, word is invalid

@@ -8,13 +8,13 @@
 int main(){
 
     // read input into vec of vec of ints.
-    std::vector<std::vector<int>> input = input_to_int_2D(read_input_2D("input", "x"));
+    std::vector<std::vector<int>> input = input_to_int_2D(read_input_2D("input", {"x"}));
 
     std::vector<int> area(3);
     int total_area = 0;
     int ribbon_area = 0;
 
-    for ( std::vector<int> & dim : input){
+    for (std::vector<int> &dim : input){
 
         std::sort(dim.begin(), dim.end());
 
