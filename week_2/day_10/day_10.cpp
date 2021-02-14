@@ -11,14 +11,17 @@ std::string look_and_say(std::string term);
 int main(){
 
     // read input into strings.
-    std::string input = "1321131112";
+    std::string part1 = "1321131112";
+    std::string part2 = part1;
 
     // find the next Conway term x50
     for (int i=0; i<50; i++){
-        input = look_and_say(input);
+        part2 = look_and_say(part2);
+        if (i==39){ part1 = part2; }
     }
 
-    std::cout << "Answer (part 1): " << input.size() << std::endl;
+    std::cout << "Answer (part 1): " << part1.size() << std::endl;
+    std::cout << "Answer (part 2): " << part2.size() << std::endl;
 
     return 0;
 }
@@ -33,12 +36,10 @@ std::string look_and_say(std::string term){
     std::string next_term;
     
     // work through term n and build term n+1
-    for ( unsigned int i=1; i<term.size(); i++ ){
+    for ( size_t i=1; i<term.size(); i++ ){
 
         // if next number repeats, its count increases
-        if ( num == term[i] ){
-            count++;
-        }
+        if (num == term[i]){ count++; }
         // if next numbner is new, add count and old number
         // to term n+1
         else {

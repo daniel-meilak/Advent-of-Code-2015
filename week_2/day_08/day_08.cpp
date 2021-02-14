@@ -31,7 +31,7 @@ void part_1(std::vector<std::string> &input){
     int raw_count = 0;
     int processed_count = 0;
 
-    for (unsigned int i=0; i<input.size(); i++){
+    for (size_t i=0; i<input.size(); i++){
 
         std::string &line = input_copy[i];
 
@@ -60,7 +60,7 @@ void part_2(std::vector<std::string> &input){
     int raw_count = 0;
     int processed_count = 0;
 
-    for (unsigned int i=0; i<input.size(); i++){
+    for (size_t i=0; i<input.size(); i++){
 
         std::string &line = input_copy[i];
 
