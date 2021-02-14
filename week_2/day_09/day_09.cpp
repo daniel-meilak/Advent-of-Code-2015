@@ -25,20 +25,12 @@ int main(){
     for (std::vector<std::string> line : input){
 
         // check if cities are in places, if not add
-        if ( std::find(places.begin(), places.end(), line[0]) == places.end() ){
-            places.push_back(line[0]);
-        }
-        if ( std::find(places.begin(), places.end(), line[1]) == places.end() ){
-            places.push_back(line[1]);
-        }
+        if (std::find(places.begin(), places.end(), line[0]) == places.end()){ places.push_back(line[0]); }
+        if (std::find(places.begin(), places.end(), line[1]) == places.end()){ places.push_back(line[1]); }
 
         // add distance to map
-        if ( line[0] < line[1] ){
-            dist[line[0]+line[1]] = std::stoi(line[2]);
-        }
-        else {
-            dist[line[1]+line[0]] = std::stoi(line[2]);
-        }
+        if ( line[0] < line[1] ){ dist[line[0]+line[1]] = std::stoi(line[2]); }
+        else { dist[line[1]+line[0]] = std::stoi(line[2]); }
     }
 
     // keep track of min and max journey lengths
@@ -53,14 +45,10 @@ int main(){
         new_total += calc_dist(dist,places[4],places[5])+calc_dist(dist,places[5],places[6]);
         new_total += calc_dist(dist,places[6],places[7]);
 
-        if (new_total < min){ 
-            min = new_total;
-        }
+        if (new_total < min){ min = new_total; }
+        if (new_total > max){ max = new_total; }
 
-        if (new_total > max){ 
-            max = new_total;
-        }
-    } while ( std::next_permutation(places.begin(), places.end()) );
+    } while (std::next_permutation(places.begin(), places.end()));
 
     std::cout << "Answer (part 1): " << min << std::endl;
     std::cout << "Answer (part 2): " << max << std::endl;
@@ -70,10 +58,6 @@ int main(){
 
 int calc_dist(std::unordered_map<std::string, int> &dist ,std::string a, std::string b){
 
-    if ( a < b ){
-        return dist[a+b];
-    }
-    else {
-        return dist[b+a];
-    }
+    if ( a < b ){ return dist[a+b]; }
+    else { return dist[b+a]; }
 }

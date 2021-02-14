@@ -21,16 +21,10 @@ int main(){
     for (std::vector<std::string> line : input){
 
         // add unique people to persons vector
-        if ( std::find(persons.begin(), persons.end(), line[0]) == persons.end() ){
-            persons.push_back(line[0]);
-        }
+        if (std::find(persons.begin(), persons.end(), line[0]) == persons.end()){ persons.push_back(line[0]); }
 
-        if (line[1] == "gain"){
-            relation[line[0]+line[3]] = std::stoi(line[2]);
-        }
-        else {
-            relation[line[0]+line[3]] = -std::stoi(line[2]);
-        }
+        if (line[1] == "gain"){ relation[line[0]+line[3]] = std::stoi(line[2]); }
+        else { relation[line[0]+line[3]] = -std::stoi(line[2]); }
     }
 
     // total happiness from configuration
@@ -77,9 +71,7 @@ int main(){
         }
 
         // if current config has higher happiness, reassign
-        if ( current_config > happiness ){
-            happiness = current_config;
-        }
+        if (current_config > happiness){ happiness = current_config; }
 
     } while( std::next_permutation(persons.begin(), persons.end()) );
 
