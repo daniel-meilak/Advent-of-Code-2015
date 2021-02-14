@@ -17,7 +17,7 @@ int main(){
 
     int i=0;
     // populate map
-    while (input[i].size() != 0){
+    while (!input[i].empty()){
         replace.push_back({input[i][0], input[i][1]});
         i++;
     }
@@ -29,17 +29,15 @@ int main(){
     std::vector<std::string> distinct;
 
     // loop through map keys
-    for ( const auto & [key, value] : replace ){
+    for (const auto & [key, value] : replace){
             
         size_t pos = mol.find(key);
         while (pos != std::string::npos){
             std::string mol_copy = mol;
-            mol_copy.replace(pos, key.size(), value);
+            mol_copy.replace(pos,key.size(),value);
 
             // if replacement is unique, add to distinct_mol
-            if ( std::find(distinct.begin(), distinct.end(), mol_copy) == distinct.end() ){
-                distinct.push_back(mol_copy);
-            }
+            if (std::find(distinct.begin(), distinct.end(), mol_copy) == distinct.end()){ distinct.push_back(mol_copy); }
 
             pos = mol.find(key, pos+1);
         }
