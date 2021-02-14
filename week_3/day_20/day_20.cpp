@@ -28,7 +28,6 @@ int main(){
         sum2 = sum_factors2(x2);
     }
     
-
     std::cout << "Answer (part 1): " << x1 << std::endl;
     std::cout << "Answer (part 2): " << x2 << std::endl;
 
@@ -78,13 +77,8 @@ int sum_factors2(int x){
                 sum += i*11;
             }
 
-            // handle special cases
-            if (x_i != i){
-                // check that it divides less than 50 times
-                if ( x/x_i <= 50 ){
-                    sum+= (x/i)*11;
-                }
-            }
+            // check that it divides less than 50 times
+            if (x_i!=i && x/x_i<=50){ sum+= (x/i)*11; }
         }
 
         i++;
