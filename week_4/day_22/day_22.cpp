@@ -54,9 +54,7 @@ int fight(hero player, enemy boss, int &spell, bool hard_mode){
     int mana_spent;
     for ( int i=0; i<5; i++ ){
         mana_spent = fight(player, boss, i, hard_mode);
-        if (mana_spent < min_mana){
-            min_mana = mana_spent;
-        }
+        if (mana_spent < min_mana){ min_mana = mana_spent; }
     }
 
     return min_mana;

@@ -5,9 +5,6 @@
 #include<cstdlib>
 #include"../../Utils/utils.h"
 
-// forward function declaration
-long next_code( long previous );
-
 int main(){
 
     const int col = 3083;
@@ -57,16 +54,11 @@ int main(){
         }
 
         // calculate the next value
-        current = next_code(current);
+        current = (current*252533L)%33554393L;
         grid[y][x] = current;
     }
 
     std::cout << "Answer (part 1): " << grid[row-1][col-1] << std::endl;
 
     return 0;
-}
-
-// generate next code
-long next_code( long previous ){
-    return (previous*252533L) % 33554393L;
 }

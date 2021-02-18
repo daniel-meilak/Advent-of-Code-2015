@@ -9,7 +9,7 @@
 #include"../../Utils/utils.h"
 
 int find_comb(std::vector<int> input, int target, int start_pos, std::vector<std::vector<int>> &history);
-long int quantum_entaglement(std::vector<int> input, int target);
+long quantum_entaglement(std::vector<int> input, int target);
 
 int main(){
 
@@ -28,7 +28,7 @@ int main(){
     return 0;
 }
 
-long int quantum_entaglement(std::vector<int> input, int target){
+long quantum_entaglement(std::vector<int> input, int target){
     
     // history to track combinations
     std::vector<std::vector<int>> history(1);
@@ -38,27 +38,27 @@ long int quantum_entaglement(std::vector<int> input, int target){
     history.pop_back();
 
     // find combinations with lowest number of boxes
-    unsigned int min_size = 1000;
+    size_t min_size = 1000;
     for (std::vector<int> comb : history){
-        unsigned int size = comb.size();
-        if (size < min_size){min_size = size;}
+        size_t size = comb.size();
+        if (size < min_size){ min_size = size; }
     }
 
     // vector of pairs of smallest combinations and their quantum entanglement (product of elements)
-    std::vector<std::pair<std::vector<int>, long int>> best_comb;
+    std::vector<std::pair<std::vector<int>, long>> best_comb;
 
     // find and calculate quantum entaglements
     for (std::vector<int> comb : history){
         if (comb.size() == min_size){
-            long int product = std::accumulate(comb.begin(), comb.end(), 1L, std::multiplies<long int>());
+            long product = std::accumulate(comb.begin(), comb.end(), 1L, std::multiplies<long>());
             best_comb.push_back({comb, product});
         }
     }
 
     // loop for smallest quantum entaglement
-    long int min_entangle = LONG_MAX;
+    long min_entangle = LONG_MAX;
     for (auto pair : best_comb){
-        if (pair.second < min_entangle){ min_entangle = pair.second;}
+        if (pair.second < min_entangle){ min_entangle = pair.second; }
     }
 
     return min_entangle;
@@ -72,17 +72,17 @@ int find_comb(std::vector<int> input, int target, int start_pos, std::vector<std
     int count = 0;
 
     static int idx = 0;
-    if (history.size() == 1){idx = 0;}
-    unsigned int size = input.size();
+    if (history.size() == 1){ idx = 0; }
+    size_t size = input.size();
 
-    for (unsigned int i=start_pos; i<size; i++){
+    for (size_t i=start_pos; i<size; i++){
 
         // current element in input
         int current_size = input[i];
 
         // if sum of remaining numbers can't equal target, return count
         int sum = 0;
-        for (unsigned int j=i; j<size; j++){ sum += input[j]; }
+        for (size_t j=i; j<size; j++){ sum += input[j]; }
         if (sum < target){ 
             history[idx].pop_back();
             return count;
