@@ -15,7 +15,7 @@ bool repeat_inbetween(std::string word);
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input_05", "");
+    std::vector<std::string> input = read_input("input_05");
 
     // number of valid strings
     int nice_strings_part1 = 0;

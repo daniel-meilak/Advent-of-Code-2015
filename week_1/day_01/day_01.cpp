@@ -8,7 +8,7 @@
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input_full = read_input("input_01", "");
+    std::vector<std::string> input_full = read_input("input_01");
 
     // exctract single line into string
     std::string input = input_full[0];
@@ -17,7 +17,7 @@ int main(){
     // current floor
     int floor = 0;
     bool got_to_basement = false;
-    int part2;
+    int part2{0};
 
     // work through instructions
     for (size_t i=0; i<size; i++){

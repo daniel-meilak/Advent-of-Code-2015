@@ -14,7 +14,7 @@ int lights(const std::vector<std::string> &input, const bool part2);
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input_18", "");
+    std::vector<std::string> input = read_input("input_18");
 
     std::cout << "Answer (part 1): " << lights(input,false) << std::endl;
     std::cout << "Answer (part 2): " << lights(input,true ) << std::endl;

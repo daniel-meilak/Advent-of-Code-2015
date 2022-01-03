@@ -12,7 +12,7 @@ void part_2(std::string word);
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input_12", "");
+    std::vector<std::string> input = read_input("input_12");
     std::string json = input[0];
 
     part_1(json);
