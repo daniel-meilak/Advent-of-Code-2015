@@ -5,7 +5,7 @@
 #include<string>
 
 const std::vector<std::string> delimiters = {"Hit Points: ","Damage: "};
-const std::vector<int> input = input_to_int(read_input("input_11",delimiters));
+const std::vector<int> input = input_to_int(read_input("input_22",delimiters));
 
 // forward struct declaration
 struct hero;
