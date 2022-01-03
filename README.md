@@ -7,3 +7,5 @@ The second Advent of Code I have completed in its entirety. Realistically, I fin
 
 ### Testing:  
 CMake is configured for testing each day against my input solutions. To use, create a build directory and run `cmake [source_directory]`, followed by `make` to compile the source code. `CTest` can be used to run the test suite.
+
+An implementation of an md5 hash is also required for several days. CMake and CTest expect this to be used (hence this does not build using GitHub actions). 
