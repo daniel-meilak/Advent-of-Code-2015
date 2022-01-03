@@ -32,11 +32,13 @@ int main(){
                     me.ring_r = ring_r;
 
                     int item_cost = me.tot_cost();
+
+                    bool win = fight(me,boss);
                 
                     // if fight ends in win, check if cheapest
-                    if ( fight(me, boss) && item_cost<best_cost){ best_cost = item_cost; }
+                    if ( win && item_cost<best_cost){ best_cost = item_cost; }
                     // if fight ends in loss, check if most expensive
-                    else if ( item_cost > worst_cost ){ worst_cost = item_cost; }
+                    else if ( !win && item_cost>worst_cost ){ worst_cost = item_cost; }
                 }
             }
         }
