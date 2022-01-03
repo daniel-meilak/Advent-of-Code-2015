@@ -16,7 +16,7 @@ std::string password(std::string &input);
 int main(){
 
     // read input into string.
-    std::string input = "hepxcrrq";
+    std::string input = read_line("input_11");
 
     // first password
     std::string pass = password(input);

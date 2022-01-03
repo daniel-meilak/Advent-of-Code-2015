@@ -4,11 +4,12 @@
 #include<climits>
 #include<algorithm>
 #include<cstdlib>
+#include"../../Utils/utils.h"
 #include"md5.h"
 
 int main(){
 
-    std::string input = "bgvyzdsv";
+    std::string input = read_line("input_04");
 
     std::string output, hash, part1, part2;
     std::string seq1 = "00000", seq2 = "000000";

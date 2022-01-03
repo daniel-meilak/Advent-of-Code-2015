@@ -11,7 +11,7 @@ int calc_dist(std::unordered_map<std::string, int> &dist ,std::string a, std::st
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::vector<std::string>> input = read_input_2D("input", {" ", "=", "to"});
+    std::vector<std::vector<std::string>> input = read_input_2D("input_09", {" ", "=", "to"});
 
     // vector containing place names
     std::vector<std::string> places;

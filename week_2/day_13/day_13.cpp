@@ -9,7 +9,7 @@
 int main(){
 
     // read input into vector of vector of strings.
-    std::vector<std::vector<std::string>> input = read_input_2D("input", {" ", ".", "would", "happiness units by sitting next to"});
+    std::vector<std::vector<std::string>> input = read_input_2D("input_13", {" ", ".", "would", "happiness units by sitting next to"});
 
     // map relating person pair and happiness gained/lost
     std::map<std::string, int> relation;

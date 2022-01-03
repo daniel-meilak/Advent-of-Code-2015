@@ -28,7 +28,7 @@ int main(){
 
     // read input into vector of strings.
     std::vector<std::string> delimiters = {":", " ", ","};
-    std::vector<std::vector<std::string>> input = read_input_2D("input", delimiters);
+    std::vector<std::vector<std::string>> input = read_input_2D("input_16", delimiters);
 
     // The Sue that got the gift for part 1 and 2
     int part_1 = 0;

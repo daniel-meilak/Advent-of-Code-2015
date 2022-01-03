@@ -8,7 +8,7 @@
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input_full = read_input("input", "");
+    std::vector<std::string> input_full = read_input("input_01", "");
 
     // exctract single line into string
     std::string input = input_full[0];

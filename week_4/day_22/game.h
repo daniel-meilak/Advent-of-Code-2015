@@ -4,14 +4,17 @@
 #include<vector>
 #include<string>
 
+const std::vector<std::string> delimiters = {"Hit Points: ","Damage: "};
+const std::vector<int> input = input_to_int(read_input("input_11",delimiters));
+
 // forward struct declaration
 struct hero;
 
 struct enemy{
 
     // curremt stats
-    int hp = 71;
-    int damage = 10;
+    int hp = input[0];
+    int damage = input[1];
     bool alive = true;
 
     // (de)buffs timers and effects

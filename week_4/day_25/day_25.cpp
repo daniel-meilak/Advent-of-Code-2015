@@ -7,8 +7,11 @@
 
 int main(){
 
-    const int col = 3083;
-    const int row = 2978;
+    std::vector<std::string> delimiters = {"To continue, please consult the code grid in the manual.  Enter the code at row ",", column "};
+    std::vector<int> input = input_to_int(read_input("input_25",delimiters));
+
+    const int row = input[0];
+    const int col = input[1];
 
     // grid width and total size of triangle
     const int n  = col+row;

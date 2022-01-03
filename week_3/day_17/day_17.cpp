@@ -10,7 +10,7 @@ int find_comb(std::vector<int> input, int target, int start_pos, std::vector<std
 int main(){
 
     // read input into vector of strings.
-    std::vector<int> input = input_to_int(read_input("input", ""));
+    std::vector<int> input = input_to_int(read_input("input_17", ""));
 
     std::sort(input.rbegin(), input.rend());
 

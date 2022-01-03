@@ -9,7 +9,7 @@ int main(){
 
     // read input into vector of strings.
     std::vector<std::string> delimiters = {":", " ", ",",  "capacity", "durability" ,"flavor", "texture", "calories", "Sugar", "Sprinkles", "Candy", "Chocolate"};
-    std::vector<std::vector<int>> input = input_to_int_2D(read_input_2D("input", delimiters));
+    std::vector<std::vector<int>> input = input_to_int_2D(read_input_2D("input_15", delimiters));
 
     // keep score
     int high_score = 0;

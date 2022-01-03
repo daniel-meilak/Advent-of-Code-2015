@@ -13,7 +13,7 @@ size_t houses(const std::vector<std::string> &input, const bool part2);
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input", "");
+    std::vector<std::string> input = read_input("input_03", "");
 
     std::cout << "Answer (part 1): " << houses(input,false) << std::endl;
     std::cout << "Answer (part 2): " << houses(input,true ) << std::endl;

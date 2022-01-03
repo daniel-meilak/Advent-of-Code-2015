@@ -26,7 +26,7 @@ int main(){
 
     // read input into vector of vector of strings.
     std::vector<std::string> delimiters = {"can fly", " ", "km/s", "for", ", but then must rest for", ".", "seconds"};
-    std::vector<std::vector<std::string>> input = read_input_2D("input", delimiters);
+    std::vector<std::vector<std::string>> input = read_input_2D("input_14", delimiters);
 
     // vector of reindeers
     std::vector<reindeer> reindeers;

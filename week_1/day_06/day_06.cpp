@@ -17,7 +17,7 @@ void part_2(std::vector<std::vector<std::string>> &input);
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::vector<std::string>> input = read_input_2D("input", {" ", ",", "turn", "through"});
+    std::vector<std::vector<std::string>> input = read_input_2D("input_06", {" ", ",", "turn", "through"});
 
     part_1(input);
     part_2(input);  

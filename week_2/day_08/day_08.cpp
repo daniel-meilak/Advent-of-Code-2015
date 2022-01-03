@@ -14,7 +14,7 @@ void part_2(std::vector<std::string> &input);
 int main(){
 
     // read input into vector of strings.
-    std::vector<std::string> input = read_input("input", "");
+    std::vector<std::string> input = read_input("input_08", "");
     
     part_1(input);
     part_2(input);

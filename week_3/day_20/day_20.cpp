@@ -11,7 +11,7 @@ int sum_factors2(int x);
 int main(){
 
     // read input into vector of strings.
-    int input = 36000000;
+    int input = std::stoi(read_line("input_20"));
 
     int x1 = 700000;
     int x2 = 1;

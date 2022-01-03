@@ -12,7 +12,7 @@ int main(){
 
     // read input into vector of vector of strings.
     std::vector<std::string> delimiter = {" ", ",", "+"};
-    std::vector<std::vector<std::string>> input = read_input_2D("input", delimiter);
+    std::vector<std::vector<std::string>> input = read_input_2D("input_23", delimiter);
 
     unsigned int a1 = 0, a2 = 1;
     unsigned int b1 = 0, b2 = 0;

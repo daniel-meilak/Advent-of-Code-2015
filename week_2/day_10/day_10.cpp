@@ -11,7 +11,7 @@ std::string look_and_say(std::string term);
 int main(){
 
     // read input into strings.
-    std::string part1 = "1321131112";
+    std::string part1 = read_line("input_10");
     std::string part2 = part1;
 
     // find the next Conway term x50

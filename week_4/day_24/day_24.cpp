@@ -14,7 +14,7 @@ long quantum_entaglement(std::vector<int> input, int target);
 int main(){
 
     // read input into vector of int.
-    std::vector<int> input = input_to_int(read_input("input", ""));
+    std::vector<int> input = input_to_int(read_input("input_24", ""));
 
     // reverse vector so it is sorted high to low
     std::reverse(input.begin(), input.end());

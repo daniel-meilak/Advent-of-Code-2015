@@ -4,6 +4,9 @@
 #include<vector>
 #include<string>
 
+const std::vector<std::string> delimiters = {"Hit Points: ","Damage: ","Armor: "};
+const std::vector<int> input = input_to_int(read_input("input_21",delimiters));
+
 struct equipment{
     std::string m_name;
     int m_cost;
@@ -54,9 +57,9 @@ int hero::tot_cost(){ return armor.m_cost + weapon.m_cost + ring_l.m_cost + ring
 
 struct enemy{
 
-    int hp = 109;
-    int damage = 8;
-    int defence = 2;
+    int hp = input[0];
+    int damage = input[1];
+    int defence = input[2];
 };
 
 
