@@ -50,7 +50,7 @@ long long quantum_entaglement(std::vector<int> input, int target){
     // find and calculate quantum entaglements
     for (std::vector<int> comb : history){
         if (comb.size() == min_size){
-            long long product = std::accumulate(comb.begin(), comb.end(), 1L, std::multiplies<long long>());
+            long long product = std::accumulate(comb.begin(), comb.end(), 1LL, std::multiplies<long long>());
             best_comb.push_back({comb, product});
         }
     }

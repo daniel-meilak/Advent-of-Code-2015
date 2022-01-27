@@ -4,6 +4,7 @@
 #include<algorithm>
 #include<cstdlib>
 #include<utility>
+#include<random>
 #include"utils.h"
 
 int main(){
@@ -48,6 +49,10 @@ int main(){
     std::string target = mol;
     int min_steps = 0;
 
+    // set up for std::shuffle
+    std::random_device rd;
+    std::mt19937 generator(rd());
+
     // going from end to start
     // while we havent reached start
     while (target != "e"){
@@ -70,7 +75,7 @@ int main(){
         if (tmp == target){
             target = mol;
             min_steps = 0;
-            std::random_shuffle(replace.begin(), replace.end());
+            std::shuffle(replace.begin(), replace.end(), generator);
         }
     }
 
