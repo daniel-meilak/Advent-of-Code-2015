@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // forward function declarations
 int check_neighbours(const std::vector<std::vector<bool>> &grid, size_t x, size_t y);

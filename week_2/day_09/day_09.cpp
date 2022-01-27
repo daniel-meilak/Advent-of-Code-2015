@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<unordered_map>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 int calc_dist(std::unordered_map<std::string, int> &dist ,std::string a, std::string b);
 

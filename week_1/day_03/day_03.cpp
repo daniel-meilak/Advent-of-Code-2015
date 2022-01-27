@@ -5,7 +5,7 @@
 #include<cstdlib>
 #include<utility>
 #include<unordered_map>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // forward function declarations
 size_t houses(const std::vector<std::string> &input, const bool part2);

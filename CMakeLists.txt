@@ -4,7 +4,7 @@ project(AOC15 VERSION 1.0)
 
 # compiler arguments
 if (MSVC)
-   add_compile_options(/Wall)
+   add_compile_options()
 else()
    add_compile_options(-Wall -Werror -Wextra -pedantic)
 endif()
@@ -49,8 +49,16 @@ list(APPEND part_2 1795 3812909 2631 1038736 55 14687245 14134 2074 804 6989950 
 
 enable_testing()
 
+# add utils subdirectory
+add_subdirectory(Utils)
+
 # add executable and test each day
 foreach(day RANGE 1 25)
+
+   if (MSVC AND ${day} EQUAL 4)
+      message(STATUS "Skipping day ${day} which requires OpenSSL.")
+      continue()
+   endif()
    
    # leading zero for single digit days
    if (${day} LESS 10)
@@ -71,7 +79,10 @@ foreach(day RANGE 1 25)
    # add each executable
    add_executable(day_${day} ${PROJECT_SOURCE_DIR}/week_${week}/day_${day}/day_${day}.cpp)
    set_target_properties(day_${day} PROPERTIES OUTPUT_NAME "day_${day}.exe")
-   target_link_libraries(day_${day} PUBLIC crypto)
+   target_link_libraries(day_${day} PUBLIC utils)
+   if (NOT MSVC)
+      target_link_libraries(day_${day} PUBLIC crypto)
+   endif()
 
    # copy input over
    configure_file(${PROJECT_SOURCE_DIR}/week_${week}/day_${day}/input_${day} ${PROJECT_BINARY_DIR}/input_${day} COPYONLY)

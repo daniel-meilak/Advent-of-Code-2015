@@ -6,7 +6,7 @@
 #include<cctype>
 #include<bitset>
 #include<unordered_map>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // conveniet flags for switch case 
 enum oper {
@@ -51,7 +51,7 @@ int part_1(std::vector<std::vector<std::string>> &input){
         create_link(links, line);
     }
 
-    int answer = eval(links, "a").to_ulong();
+    int answer = eval(links, "a").to_ullong();
     std::cout << "Answer (part 1): " << answer << std::endl;
 
     return answer;
@@ -67,7 +67,7 @@ void part_2(std::vector<std::vector<std::string>> &input, int b_input){
 
     links["b"].value = b_input;
 
-    int answer = eval(links, "a").to_ulong();
+    int answer = eval(links, "a").to_ullong();
     std::cout << "Answer (part 2): " << answer << std::endl;
 }
 
@@ -160,10 +160,10 @@ std::bitset<16> eval(std::unordered_map<std::string, ident> &links, std::string 
                 r = eval(links, temp.link[0]) | eval(links, temp.link[1]);
                 break;
             case op_lshift:
-                r = eval(links, temp.link[0]) << temp.value.to_ulong();
+                r = eval(links, temp.link[0]) << temp.value.to_ullong();
                 break;
             case op_rshift:
-                r = eval(links, temp.link[0]) >> temp.value.to_ulong();
+                r = eval(links, temp.link[0]) >> temp.value.to_ullong();
                 break;
             case op_not:
                 r = ~eval(links, temp.link[0]);

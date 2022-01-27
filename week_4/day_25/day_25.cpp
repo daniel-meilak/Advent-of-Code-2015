@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 int main(){
 
@@ -22,10 +22,10 @@ int main(){
 
 
     // create square grid width=col+row to contain values
-    std::vector<std::vector<long>> grid(n, std::vector<long>(n,0L));
+    std::vector<std::vector<long long>> grid(n, std::vector<long long>(n,0LL));
 
     // initial value
-    long current = 20151125L;
+    long long current = 20151125LL;
     grid[0][0] = current;
 
     // variables for the pattern
@@ -57,7 +57,7 @@ int main(){
         }
 
         // calculate the next value
-        current = (current*252533L)%33554393L;
+        current = (current*252533LL)%33554393LL;
         grid[y][x] = current;
     }
 

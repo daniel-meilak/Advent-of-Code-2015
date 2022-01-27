@@ -6,10 +6,10 @@
 #include<climits>
 #include<cstdlib>
 #include<utility>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 int find_comb(std::vector<int> input, int target, int start_pos, std::vector<std::vector<int>> &history);
-long quantum_entaglement(std::vector<int> input, int target);
+long long quantum_entaglement(std::vector<int> input, int target);
 
 int main(){
 
@@ -28,7 +28,7 @@ int main(){
     return 0;
 }
 
-long quantum_entaglement(std::vector<int> input, int target){
+long long quantum_entaglement(std::vector<int> input, int target){
     
     // history to track combinations
     std::vector<std::vector<int>> history(1);
@@ -45,18 +45,18 @@ long quantum_entaglement(std::vector<int> input, int target){
     }
 
     // vector of pairs of smallest combinations and their quantum entanglement (product of elements)
-    std::vector<std::pair<std::vector<int>, long>> best_comb;
+    std::vector<std::pair<std::vector<int>, long long>> best_comb;
 
     // find and calculate quantum entaglements
     for (std::vector<int> comb : history){
         if (comb.size() == min_size){
-            long product = std::accumulate(comb.begin(), comb.end(), 1L, std::multiplies<long>());
+            long long product = std::accumulate(comb.begin(), comb.end(), 1L, std::multiplies<long long>());
             best_comb.push_back({comb, product});
         }
     }
 
     // loop for smallest quantum entaglement
-    long min_entangle = LONG_MAX;
+    long long min_entangle = LLONG_MAX;
     for (auto pair : best_comb){
         if (pair.second < min_entangle){ min_entangle = pair.second; }
     }

@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<cstdlib>
 #include<regex>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 void part_1(std::string word);
 void part_2(std::string word);

@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 int find_comb(std::vector<int> input, int target, int start_pos, std::vector<std::vector<int>> &history);
 

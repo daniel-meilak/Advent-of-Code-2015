@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 // forward function declarations
 void computer(unsigned int &a, unsigned int &b , std::vector<std::vector<std::string>> &input);

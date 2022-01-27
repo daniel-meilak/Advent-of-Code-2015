@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 #include<cstdlib>
-#include"../../Utils/utils.h"
+#include"utils.h"
 
 void turn_on(std::vector<std::vector<bool>> &grid, int x1, int y1, int x2, int y2);
 void turn_off(std::vector<std::vector<bool>> &grid, int x1, int y1, int x2, int y2);
